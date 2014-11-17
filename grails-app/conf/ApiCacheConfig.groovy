@@ -3,6 +3,6 @@ config = {
         name 'message'
     }
     cache {
-        name 'api'
+        name 'tokens'
     }
 }

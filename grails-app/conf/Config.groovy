@@ -114,6 +114,12 @@ log4j.main = {
            'org.springframework',
            'org.hibernate',
            'net.sf.ehcache.hibernate'
+
+    //SUMO
+    debug  'grails.app'
+    debug  'org.hibernate.cache.ehcache'
+    debug  'org.sumo.apiapp'
+    info   'grails.plugin.springsecurity.web.filter.DebugFilter'
 }
 
 // Security
@@ -122,21 +128,21 @@ grails {
         springsecurity {
             controllerAnnotations {
                 staticRules = [
-                        '/':                              ['permitAll'],
-                        '/index':                         ['permitAll'],
-                        '/index.gsp':                     ['permitAll'],
-                        '/assets/**':                     ['permitAll'],
-                        '/**/js/**':                      ['permitAll'],
-                        '/**/css/**':                     ['permitAll'],
-                        '/**/images/**':                  ['permitAll'],
-                        '/**/favicon.ico':                ['permitAll']
+                    '/':                              ['permitAll'],
+                    '/index':                         ['permitAll'],
+                    '/index.gsp':                     ['permitAll'],
+                    '/assets/**':                     ['permitAll'],
+                    '/**/js/**':                      ['permitAll'],
+                    '/**/css/**':                     ['permitAll'],
+                    '/**/images/**':                  ['permitAll'],
+                    '/**/favicon.ico':                ['permitAll']
                 ]
             }
             filterChain {
                 chainMap = [
-                        '/api/guest/**': 'anonymousAuthenticationFilter,restTokenValidationFilter,restExceptionTranslationFilter,filterInvocationInterceptor',
-                        '/api/**': 'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter,-rememberMeAuthenticationFilter',
-                        '/**': 'JOINED_FILTERS,-restTokenValidationFilter,-restExceptionTranslationFilter'
+                    '/api/guest/**': 'anonymousAuthenticationFilter,restTokenValidationFilter,restExceptionTranslationFilter,filterInvocationInterceptor',
+                    '/api/**': 'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter,-rememberMeAuthenticationFilter',
+                    '/**': 'JOINED_FILTERS,-restTokenValidationFilter,-restExceptionTranslationFilter'
                 ]
             }
             //Other Spring Security settings
@@ -146,7 +152,7 @@ grails {
                 token {
                     storage {
                         useGrailsCache = true
-                        grailsCacheName = 'api'
+                        grailsCacheName = 'tokens'
                     }
                     validation {
                         enableAnonymousAccess = true

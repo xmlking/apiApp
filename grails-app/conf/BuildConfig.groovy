@@ -49,7 +49,6 @@ grails.project.dependency.resolution = {
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
         // runtime 'mysql:mysql-connector-java:5.1.29'
-        // runtime 'org.postgresql:postgresql:9.3-1101-jdbc41'
         test "org.grails:grails-datastore-test-support:1.0.2-grails-2.4"
         compile "net.sf.ehcache:ehcache-core:2.4.8"
     }
@@ -65,7 +64,7 @@ grails.project.dependency.resolution = {
 
         compile ":spring-websocket:latest.release" //1.2.0
         compile ":spring-security-core:2.0-RC4" //2.0-RC4
-        compile ":spring-security-rest:latest.release", { //1.4.1.RC1
+        compile ":spring-security-rest:latest.release", { //1.4.1.RC2
             excludes: 'spring-security-core'
         }
         compile ":mongodb:latest.release"  //3.0.2
@@ -73,7 +72,7 @@ grails.project.dependency.resolution = {
         // plugins needed at runtime but not for compilation
         //runtime ":hibernate4:4.3.6.1" // or ":hibernate:3.6.10.18"
         //runtime ":database-migration:1.4.0"
-        //runtime ":jquery:1.11.1"
+        runtime ":jquery:latest.release" //1.11.1
 
         // Uncomment these to enable additional asset-pipeline capabilities
         //compile ":sass-asset-pipeline:1.9.0"

@@ -9,6 +9,9 @@ class User {
 	ObjectId id
 	String username
 	String password
+	String firstName
+	String lastName
+	String title
 	String email
 	boolean enabled = true
 	boolean accountExpired

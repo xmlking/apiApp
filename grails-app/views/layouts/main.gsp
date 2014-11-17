@@ -17,7 +17,18 @@
 		<g:layoutHead/>
 	</head>
 	<body>
-		<div id="grailsLogo" role="banner"><a href="http://grails.org"><asset:image src="grails_logo.png" alt="Grails"/></a></div>
+        <div id="grailsLogo" role="banner">
+            <a href=""><img src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/></a>
+
+            <div style="float:right;">
+                <sec:ifLoggedIn>
+                    Welcome  <sec:username/>! <g:remoteLink controller='logout' onSuccess="window.location.replace('${createLink(uri: '/')}');" params="[ajax:true]">Logout</g:remoteLink>
+                </sec:ifLoggedIn>
+                <sec:ifNotLoggedIn>
+                    <g:link controller='login' action='auth'>Login</g:link>
+                </sec:ifNotLoggedIn>
+            </div>
+        </div>
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
